@@ -38,7 +38,7 @@ class SongController {
 					'start' => $show->start_time,
 					'end' => $show->end_time
 				), get_permalink());
-				return $value . '</p><p><a href="' . $url . '">Songs Played</a>';
+				return $value . '<br /><a href="' . $url . '">Songs Played</a>';
 			}
 			return $value;
 		}, 10, 2);
