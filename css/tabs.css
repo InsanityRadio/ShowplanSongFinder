@@ -1,0 +1,125 @@
+.showplan-schedule-container {
+	width: 100%;
+	max-width: 800px;
+}
+
+
+.showplan-schedule-menu {
+	table-layout: fixed;
+	text-align: center;
+}
+
+.showplan-schedule-menu .showplan-schedule-tab {
+	font-size: 9pt;
+	transition: background 0.03s;
+	cursor: pointer;
+}
+
+.showplan-schedule-menu .showplan-schedule-tab:hover {
+	background: rgba(0, 0, 0, 0.05);
+}
+
+.showplan-schedule-menu .showplan-schedule-tab.current {
+	background: #444;
+	color: #FFF;
+}
+
+.showplan-tab {
+	
+}
+
+.showplan-show {
+	border-bottom: 1px solid #CCC;
+	margin: 20px 0;
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+}
+
+.showplan-show > div {
+	display: table-row;
+}
+
+.showplan-show > div > div {
+	display: table-cell;
+}
+
+.showplan-show > div > div:nth-child(1) {
+	width: 6em;
+	padding-left: 10px;
+	font-size: 10pt;
+}
+
+.showplan-show > div > div:nth-child(2) {
+	width: 100px;
+}
+
+.showplan-on-air-indicator {
+	display: inline-block;
+	background: #FF8229;
+	color: #000;
+	font-weight: bold;
+	margin: 0;
+	padding: 3px 6px 2px;
+	position: relative;
+	left: -6px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.showplan-schedule-container.no-images .showplan-show > div > div:nth-child(2) {
+	width: 0;
+	display: none;
+}
+
+.showplan-end-time {
+	color: #AAA;
+	display: none;
+	font-size: 8pt;
+}
+
+.showplan-show h3 {
+	margin: 0;
+	padding: 0;
+	font-size: 12pt;
+	font-weight: 600;
+}
+
+.showplan-show h3 + span {
+	font-weight: 600;
+}
+
+.showplan-show h3 + span, .showplan-show p {
+	font-size: 10pt;
+}
+
+/* Break the table if our screen is tiiny */
+@media screen and (max-width: 500px) {
+	.showplan-show {
+		display: block;
+	}
+	.showplan-show > div, .showplan-show > div > div {
+		display: block;
+		width: 100% !important;
+	}
+	.showplan-schedule-container .showplan-show > div > div:nth-child(2) {
+		display: none;
+	}
+	.showplan-end-time {
+		display: inline;
+		padding-left: 0.2em;
+		font-size: 10pt;
+	}
+	.showplan-show > div > div:nth-child(1) {
+		padding-left: 0;
+	}
+	.showplan-show.showplan-on-air > div > div:nth-child(1) {
+		padding-left: 10px;
+		margin-top: 3px;
+	}
+	.showplan-on-air-indicator {
+		position: inherit;
+		float: left;
+		margin: -3px 10px 3px -10px;
+	}
+}
