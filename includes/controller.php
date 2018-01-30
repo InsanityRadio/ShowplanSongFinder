@@ -51,13 +51,21 @@ class SongController {
 		if (($a = strpos($_SERVER['REQUEST_URI'], "?")) !== false) {
 			parse_str(substr($_SERVER['REQUEST_URI'], $a + 1), $__GET);
 		}
+		
+		add_action( 'wp_head', function () use ($__GET) {
+			if (!isset($__GET['start']) || !isset($__GET['end'])) {
+				return;
+			}
+			echo '<meta name="robots" content="noindex" />';
+		}, 10 );
+			
 
 		add_filter('showplan_schedule_inject', function ( $value ) use ($__GET) {
 		
 			if (!isset($__GET['start']) || !isset($__GET['end'])) {
 				return null;
 			}
-			
+		
 			$_songs = Models\Song::between($__GET['start'], $__GET['end']);
 			$_data = '<h2>Song Finder</h2>';
 			$_data .= '<h3>' . gmdate("j M Y H:i ", $__GET['start']) . ' - ' . gmdate("H:i", $__GET['end']) . '</h3>';
